@@ -1,0 +1,57 @@
+\chapter{Kummer 理论}
+
+\section{根号扩张}
+记 $\sqrt[n]{a}$ 为 $X^n - a$ 的一个根.  称形如 $K(\sqrt[n]{a})$ 的扩张为 $K$ 的 $n$ 次根号扩张.  我们观察到如下事实：
+\begin{fact}
+  \begin{itemize}
+  \item $\R$ 只有一个二次根号扩张；$\R^\times / \R^{\times2} = \{\pm 1\}$.
+  \item $\Q$ 的二次根号扩张有无穷多个：若 $a/b$ 不是 $\Q^\times$ 中的平方元，则 $\Q(\sqrt a)$ 与 $\Q(\sqrt b)$ 互不相同.
+  \item 对 $p > 2$, 有限域 $\F_p$ 有唯一的二次根号扩张 $\F_p(\sqrt a)$, 其中 $a$ 为任意的二次非剩余.
+  \item $\Q(\sqrt[3]{2})$ 不是 $Q$ 的 Galois 扩张.  而 $\Q(\zeta_3, \sqrt[3]{2})$ 是 $\Q(\zeta_3)$ 的 Galois 扩张，其 Galois 群为 $\Z/3\Z$.
+  \end{itemize}
+\end{fact}
+稍作思考可以发现
+\begin{obs}
+  \begin{enumerate}
+  \item $K$ 的 $n$ 次根号扩张应当与 $K^\times / K^{\times n}$ 有某种对应关系.
+  \item 若 $K$ 中有所需的单位根，则此类扩张是 Galois 的.
+  \item 此时 Galois 群应为循环群.
+  \end{enumerate}
+\end{obs}
+
+Kummer 理论即基于此观察，并且提供了某种逆命题：有所需的单位根的情况下，Galois 群为循环群的扩张皆为 $n$ 次根号扩张.
+
+\section{循环扩张}
+\begin{defn}
+  若域的扩张 $K/F$ 为 Galois 的，且 $\Gal(K/F)$ 为循环群，则称 $K$ 为 $F$ 的\emph{循环扩张}.
+\end{defn}
+
+\begin{thm}
+  设 $F$ 为域且其中含有 $n$ 次本原单位根 $\omega$, 则
+  \begin{itemize}
+  \item 对 $a \in F^\times$, 令 $\alpha = \sqrt[n]{a}$, 则 $K = F(\alpha)$ 为 $F$ 的循环扩张，且 $|\Gal(K/F)|$ 为 $a$ 在 $F^\times / F^{\times n}$ 中的阶.
+  \item $F$ 的 $n$ 次循环扩张一定具有 $F(\sqrt[n]{a})$ 的形式.
+  \end{itemize}
+\end{thm}
+
+\begin{proof}
+  为了证明第一点，注意到 $X^n - a$ 的根一定具有 $\omega^k \alpha$ 的形式.  于是设 $\sigma \in \Gal(K/F)$, 则 $\sigma(\alpha) = \omega^k \alpha$, 其中 $k \in \Z/n\Z$.  这定义了一个映射 $\Gal(K/F) \to \Z/n\Z$.  显然此映射为群同态，且为单同态，故 $\Gal(K/F)$ 可视为循环群 $\Z/n\Z$ 的子群，于是也为循环群.
+
+  设 $\sigma$ 为 $\Gal(K/F)$ 的一个生成元，并设 $\sigma(\alpha) = \omega^k \alpha$.  我们说明，对任意自然数 $m$, 有 $a^m \in F^{\times n} \Leftrightarrow \sigma^m = \id$——不难看出这将蕴含关于 $|Gal(K/F)|$ 的结论.
+
+  首先我们说明 $a^m \in F^{\times n} \Leftrightarrow \alpha^m \in F^\times$.  注意到 $a^m = (\alpha^m)^n$, 故 $\Leftarrow$ 是显然的.  为证明 $\Rightarrow$, 设 $a^m = f^n$, 其中 $f \in F^\times$.  则 $\alpha^{mn} = f^n$, 从而 $(\alpha^m/f)^n = 1$.  由关于 $F$ 中单位根的假设，$\alpha^m/f \in F^\times$, 故 $\alpha^m \in F^\times$.
+
+  其次说明 $\alpha^m \in F^\times \Leftrightarrow \sigma^m = \id$.  $\Leftarrow$ 是 Galois 理论中关于不动子域的基本定理.  为证明 $\Rightarrow$, 只需考虑 $\sigma(\alpha) = \omega^k \alpha$, 因此 $a = \sigma(a) = \sigma(\alpha^m) = \omega^{km} \alpha^m$, 从而 $n \mid km$.  不难验证这蕴涵着 $\sigma^m = \id$.  与前述结论结合即明所欲证.
+
+  为了证明第二点，我们需要用到一个引理:
+  \begin{lemma}[Hilbert “定理 90”]
+    设 $F$ 为域，$n$ 次本原单位根 $\omega \in F$.  设 $K/F$ 为 $n$ 次循环扩张, $\sigma$ 为其 Galois 群的生成元.  则存在 $x \in K^\times$ 使得 $\sigma(x) = \omega x$.
+  \end{lemma}
+
+  承认该引理，则这样的 $x$ 满足 $\sigma(x^n) = (\omega x)^n = x^n$, 从而由 Galois 理论基本定理知 $a = x^n \in F$.  从而 $K \supseteq F(\sqrt[n]{a})$.  而由第一点，$[F(\sqrt[n]{a}) : F] = n$, 从而 $K = F(\sqrt[n]{a})$.
+\end{proof}
+
+特别地，对于素数 $p$, 我们有更简洁的结论：
+\begin{cor}
+  设 $F$ 为域且其中含有 $p$ 次本原单位根.  则 $F$ 的 $p$ 次 Galois 扩张全体即为形如 $F(\sqrt[n]{a})$ 的扩张全体，其中 $a \in F^\times - F^{\times p}$.
+\end{cor}
