@@ -42,7 +42,7 @@ Kummer 理论即基于此观察，并且提供了某种逆命题：有所需的�
 
   首先我们说明 $a^m \in F^{\times n} \Leftrightarrow \alpha^m \in F^\times$.  注意到 $a^m = (\alpha^m)^n$, 故 $\Leftarrow$ 是显然的.  为证明 $\Rightarrow$, 设 $a^m = f^n$, 其中 $f \in F^\times$.  则 $\alpha^{mn} = f^n$, 从而 $(\alpha^m/f)^n = 1$.  由关于 $F$ 中单位根的假设，$\alpha^m/f \in F^\times$, 故 $\alpha^m \in F^\times$.
 
-  其次说明 $\alpha^m \in F^\times \Leftrightarrow \sigma^m = \id$.  $\Leftarrow$ 是 Galois 理论中关于不动子域的基本定理.  为证明 $\Rightarrow$, 只需考虑 $\sigma(\alpha) = \omega^k \alpha$, 因此 $a = \sigma(a) = \sigma(\alpha^m) = \omega^{km} \alpha^m$, 从而 $n \mid km$.  不难验证这蕴涵着 $\sigma^m = \id$.  与前述结论结合即明所欲证.
+  其次说明 $\alpha^m \in F^\times \Leftrightarrow \sigma^m = \id$.  注意到 $\sigma(\alpha) = \omega^k \alpha$, 因此 $\sigma(\alpha^m) = (\sigma(\alpha))^m = \omega^{km} \alpha^m$.  由 Galois 理论基本定理，$\alpha^m \in F^\times \Leftrightarrow \sigma(\alpha^m) = \alpha^m$.  而这等价于 $\omega^{km} = 1$ 或 $n \mid km$.  该条件又与 $\sigma^m = \id$ 等价.  与前述结论结合即明所欲证.
 
   为了证明第二点，我们需要用到一个引理:
   \begin{lemma}[Hilbert “定理 90”]
