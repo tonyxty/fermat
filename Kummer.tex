@@ -32,6 +32,7 @@ Kummer 理论即基于此观察，并且提供了某种逆命题：有所需的�
   \item 对 $a \in F^\times$, 令 $\alpha = \sqrt[n]{a}$, 则 $K = F(\alpha)$ 为 $F$ 的循环扩张，且 $|\Gal(K/F)|$ 为 $a$ 在 $F^\times / F^{\times n}$ 中的阶.
   \item $F$ 的 $n$ 次循环扩张一定具有 $F(\sqrt[n]{a})$ 的形式.
   \end{itemize}
+  \label{thm:cyclic-form}
 \end{thm}
 
 \begin{proof}
@@ -55,3 +56,54 @@ Kummer 理论即基于此观察，并且提供了某种逆命题：有所需的�
 \begin{cor}
   设 $F$ 为域且其中含有 $p$ 次本原单位根.  则 $F$ 的 $p$ 次 Galois 扩张全体即为形如 $F(\sqrt[n]{a})$ 的扩张全体，其中 $a \in F^\times - F^{\times p}$.
 \end{cor}
+
+\section{Kummer 配对}
+在本节中，假定 $n > 1$, $F$ 为域且其中含有 $n$ 次本原单位根.
+
+在前述讨论中，我们屡次使用了一个重要事实：若 $\sigma \in \Gal(K/F)$, $\alpha = \sqrt[n]{a} \in K$, 则 $\sigma(\alpha) / \alpha$ 为 $n$ 次单位根.  与其对特定的 $a$ 将之视为 $\Gal(K/F) \to \mu_n$ 的映射，不如对所有的 $a \in F^\times$ 同时考虑这一构造.  这一构造要成立，自然需要 $a \in K^{\times n}$; 同时若 $a \in F^{\times n}$, 则 $\alpha \in F$, 进而 $\sigma(\alpha)/\alpha = 1$.  我们自然想到如下定义：
+\begin{defn}
+  \begin{align*}
+    B \colon \Gal(K/F) \times (F^\times \cap K^{\times n} / F^{\times n}) & \to \mu_n \\
+    (\sigma, [a]) & \mapsto \sigma(\sqrt[n]{a})/\sqrt[n]{a}.
+  \end{align*}
+  称为 \emph{Kummer 配对}.
+\end{defn}
+
+我们不难验证该式与 $[a]$ 代表元的选取及 $\sqrt[n]{a}$ 的选取都无关，故此定义是合理的.  若 $K/F$ 是 Abel 扩张，则同样易于验证该配对是双线性的.  对于一类特殊的扩张，我们还可以证明 Kummer 配对是非退化的.
+\begin{defn}
+  若 $\Gal(K/F)$ 为有限 Abel 群且具有指数 $n$ (即对所有 $g \in \Gal(K/F)$ 有 $g^n = \id$)，则称扩张 $K/F$ 为 \emph{$n$-Kummer 扩张}.
+\end{defn}
+\begin{thm}
+  $K/F$ 为 $n$-Kummer 扩张当且仅当存在 $F^\times$ 中的元素 $a_1$, $\ldots$, $a_k$ 使得 $K = F(\sqrt[n]{a_1}, \ldots, \sqrt[n]{a_k})$.
+\end{thm}
+为证明这一定理，我们需要以下引理：
+\begin{lemma}
+  设 $K$ 为域，$E_1$, $E_2$ 为 $K$ 的有穷扩张，则
+  \begin{itemize}
+  \item 若 $E_1/K$ 为 Galois 扩张，则 $E_1E_2/E_2$ 亦为 Galois 扩张，且 $\Gal(E_1E_2/E_2) = \Gal(E_1/E_1 \cap E_2)$.
+  \item 若 $E_1/K$, $E_2/K$ 皆为 Galois 扩张，则 $E_1E_2/K$ 亦为 Galois 扩张，且 $\Gal(E_1E_2/K) = \{(\sigma, \tau) \in \Gal(E_1/K) \times \Gal(E_2/K) : \sigma = \tau \text{ 在\ } K \cap L \text{ 上相等}\}$.
+  \end{itemize}
+\end{lemma}
+$E_1E_2$ 称为 $E_1$ 与 $E_2$ 的合成.  它在 $K$ 的扩张形成的范畴中起到了纤维积的作用.
+
+承认这一定理，我们容易说明 Abel 扩张的合成仍是 Abel 扩张.  特别地，$n$-Kummer 扩张的合成仍是 $n$-Kummer 扩张.  我们转向定理的证明.
+\begin{proof}
+  若 $K/F$ 为 $n$-Kummer 扩张，则由有限生成 Abel 群的结构定理，可设 $G = \Gal(K/F) \cong C_1 \times \cdots \times C_k$, 其中每个 $C_i$ 为循环群且阶为 $n$ 的因数.  令 $G_i = \prod_{j \ne i} C_j$, $K_i$ 为 $G_i$ 的固定子域.  则 $\Gal(K_i/F) = G/G_i = C_i$.  由定理~\ref{thm:cyclic-form}, 存在某 $a_i \in F$ 使得 $K_i = F(\sqrt[n]{a_i})$.  考虑 $L = F(\sqrt[n]{a_1}, \ldots, \sqrt[n]{a_k}) \subseteq K$.  不难看出若 $\sigma \in \Gal(K/L)$, 则 $\sigma \in \cap G_i = 1$.  从而 $\Gal(K/L)$ 是平凡群，即 $K = L$.
+
+  另一方面，仍由定理~\ref{thm:cyclic-form}, 每个 $F(\sqrt[n]{a_i})$ 都是 $n$-Kummer 扩张.  故它们的合成 $K$ 亦为 $n$-Kummer 扩张.
+\end{proof}
+
+\begin{thm}
+  设 $K = F(\sqrt[n]{a_1}, \ldots, \sqrt[n]{a_k})$.  则 Kummer 配对是非退化的，且群 $F^\times \cap K^{\times n} / F^{\times n}$ 由 $a_1$, $\ldots$, $a_k$ 生成.
+\end{thm}
+\begin{cor}
+  设 $K = F(\sqrt[n]{a_1}, \ldots, \sqrt[n]{a_k})$.  则 $\Gal(K/F)$ 同构于 $F^\times / F^{\times n}$ 中由 $a_1$, $\ldots$, $a_k$ 生成的子群.
+\end{cor}
+
+\section{基本定理}
+我们将上面的讨论总结为如下定理：
+\begin{thm}[Kummer 理论基本定理]
+  设 $n > 1$, $F$ 为域且含有 $n$ 次本原单位根.  存在一一对应
+  \[ \{ F \text{ 的\ } n \text{-Kummer 扩张} \} \leftrightarrow \{F^\times / F^{\times n} \text{ 的有限子群}\} \]
+  与 $K/F$ 相对应的是 $F^\times \cap K^{\times n} / F^{\times n}$.  与 $A \subseteq F^\times / F^{\times n}$ 相对应的是 $F(\sqrt[n]{a} \colon [a] \in A)$.  当 $K/F$ 与 $A$ 对应时，$\Gal(K/F)$ 与 $A$ 间有非退化 Kummer 配对.  特别地，$\Gal(K/F) \cong A$.
+\end{thm}
