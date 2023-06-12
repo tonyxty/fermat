@@ -1,0 +1,49 @@
+\chapter{Brauer 群}
+
+\section{中心单代数}
+\begin{defn}
+  设 $F$ 为交换环，$A$ 为环.  若同态 $\iota \colon F \to A$ 满足 $\iota(F) \subseteq Z(A)$, 则称之为 \emph{$F$-代数}.  若 $F$ 为域且 $\iota(F) = Z(A)$, 则称 $\iota$ (或不严谨地称 $A$) 为\emph{中心 $F$-代数}.
+\end{defn}
+所有的环都是 $\Z$-代数，正如同所有 Abel 群都是 $\Z$-模一样.  有时采取这一观点有助于对问题的理解；此时我们将环笼统地称为代数.
+
+\begin{defn}
+  若环 $A$ 不包含双边理想，则称之为\emph{单环}或\emph{单代数}.  若 $A$ 为中心 $F$-代数且为单环，则称之为\emph{中心 $F$-单代数}.  若 $A$ 是半单 $A$-模，则称 $A$ 为\emph{半单环}或\emph{半单代数}.
+\end{defn}
+
+TBW: 四元数代数.
+
+\section{Artin--Wedderburn 定理}
+\begin{thm}[Artin--Wedderburn 定理]
+  设 $F$ 为域，$A$ 为半单 $F$-代数，则
+  \[ A \cong \prod M_{n_i}(D_i), \]
+  其中 $D_i$ 为除环.  诸 $n_i$ 与 $D_i$ 由 $A$ 唯一确定（不计交换次序）.  若 $A$ 为中心 $F$-代数，则 $Z(D_i) = F$.  若 $A$ 为中心 $F$-单代数，则 $A \cong M_{n}(D)$.
+\end{thm}
+
+\begin{defn}
+  设 $F$ 为域，$A$, $B$ 为中心 $F$-单代数.  若 $A \cong M_n(D)$, $B \cong M_m(D)$, 则称 $A$, $B$ \emph{Brauer 等价}.
+\end{defn}
+
+\begin{thm}
+  张量积保持 Brauer 等价.
+\end{thm}
+
+\begin{thm}
+  若 $D$ 为除环，$F = Z(D)$, $n = [D:F]$, 则 $D \otimes D^{op} \cong M_n(F)$.
+\end{thm}
+
+\section{Brauer 群}
+\begin{defn}
+  $F$ 上的 \emph{Brauer 群}为所有中心 $F$-单代数的 Brauer 等价类关于张量积形成的群，记为 $\Br(F)$.  $[F]$ 为单位元，$[A]$ 的逆元为 $[A^{op}]$.
+\end{defn}
+
+\begin{thm}
+  若 $K/F$ 为域扩张，则
+  \begin{align*}
+    \Br(F) &\to \Br(K) \\
+    [A] \mapsto [A \otimes K]
+  \end{align*}
+  为群同态.
+\end{thm}
+\begin{defn}
+  上述同态的核称为 $K/F$ 的\emph{相对 Brauer 群}，记为 $\Br(K/F)$.
+\end{defn}
