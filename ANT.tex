@@ -75,3 +75,21 @@ Fermat 对不定方程的研究，可谓代数数论之滥觞.  在讨论「数�
 \begin{thm}[Dirichlet 单位定理]
   设 $K$ 为数域，$K$ 到 $\R$ 有 $r_1$ 个嵌入，$K$ 到 $\C$ 有 $2r_2$ 个嵌入.  则 $O_K^\times \cong \Z^{r_1+r_2-1} \oplus \mu^\times$, 其中 $\mu^\times$ 为 $O_K$ 中的单位根所形成的群.
 \end{thm}
+
+\section{局部域}
+\begin{defn}
+  设 $F$ 为域，$F$ 上的\emph{赋值}是一个映射 $v \colon F \to \R \cup \{+\infty\}$ 使得
+  \begin{enumerate}
+  \item $v(x) = +\infty \Leftrightarrow x = 0$.
+  \item $v(xy) = v(x) + v(y)$.
+  \item $v(x+y) \ge \min \{v(x), v(y)\}$.
+  \end{enumerate}
+\end{defn}
+
+\begin{thm}[Hensel 引理]
+  设 $F$ 为完备赋值域，$f \in O_F[X]$, $\bar f = f_1 f_2$, 其中 $f_1$, $f_2 \in \bar F[X]$ 互素.  则存在 $g$, $h \in O_F[X]$ 使得 $f = gh$, $\bar g = f_1$, $\bar h = f_2$, 且 $\deg g = \deg f_1$.
+\end{thm}
+
+Hensel 引理的重要性在于，它将较难把握的 $F$ 中的多项式分解问题归结为 $\bar F$ 中的多项式分解问题.  对于 $p$-进域，$\bar F$ 是有限域，因此其中的多项式分解是易于把握的.
+
+作为 Hensel 引理的用例，我们可以确定 $p > 2$ 时 $\Q_p$ 中平方元的形式.  设 $a = p^n u \in \Q_p$, 其中 $n = v_p(a)$, $u \in \Z_p^\times$.  不难证明 $a$ 为平方元当且仅当 $n$ 为偶数且 $u$ 为 $\Z_p$ 中的平方元.  考虑 $X^2 - u \in \Z_p[X]$, 它能分解为两个一次多项式的乘积当且仅当 $u$ 为平方元，而由 Hensel 引理，这又等价于 $X^2 - \bar u \in \F_p[X]$ 能分解，即 $\bar u$ 为二次剩余.  不难由此看出，$\Q_p / \Q_p^2 = \Z/2\Z \times \Z/2\Z$.
